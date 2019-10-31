@@ -38,10 +38,6 @@ module.exports = {
       template: './src/index.html'
     }),
     new HtmlWebpackPlugin({
-      filename: 'splash.html',
-      template: './src/splash.html'
-    }),
-    new HtmlWebpackPlugin({
       filename: 'login.html',
       template: './src/login.html'
     }),
@@ -51,7 +47,7 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       filename: 'guest-view.html',
-      template: '.src/guest-view.html'
+      template: './src/guest-view.html'
     })
   ],
   devServer: {
