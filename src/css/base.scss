@@ -1,6 +1,49 @@
-/* This is an example of using Sass, otherwise plain CSS works too*/
-$primary-background: pink;
+@import 'variables';
+@import 'mixins';
+
+.clearfix:after {
+    content: ' ';
+    display: table;
+    clear: both;
+}
+
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
 body {
-  background-color: $primary-background;
+  background-color: $primary-background-color;
+  text-align: center;
+  font-family: $primary-font;
+}
+
+header {
+  margin-top: 8vw;
+}
+
+h1 {
+  color: $text-color;
+  letter-spacing: 10px;
+  font-size: 7vw;
+}
+
+h2 {
+  color: $secondary-background-color;
+  font-family: $secondary-font;
+}
+
+button {
+  color: $secondary-background-color;
+  background-color: $text-color;
+  border: none;
+  padding: 4vw;
+  width: 40vw;
+  font-size: 2vw;
+  letter-spacing: .6vw;
+  margin: 4vw;
+  margin-top: 20vw;
 }
