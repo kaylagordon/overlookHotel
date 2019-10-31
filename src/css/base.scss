@@ -36,14 +36,54 @@ h2 {
   font-family: $secondary-font;
 }
 
-button {
+.background-graphic {
+  margin-top: 10vw;
+  background-image: url(../images/background.png);
+  background-repeat: repeat;
+  background-size: contain;
+  margin-bottom: 20vw;
+}
+
+#guest-button,
+#manager-button {
   color: $secondary-background-color;
   background-color: $text-color;
   border: none;
   padding: 4vw;
-  width: 40vw;
-  font-size: 2vw;
-  letter-spacing: .6vw;
-  margin: 4vw;
-  margin-top: 20vw;
+  width: 20em;
+  font-size: 1em;
+  letter-spacing: .3em;
+  margin: 10em 2em;
+}
+
+.login-background {
+  background-color: $accent-color;
+  width: 50%;
+  margin: auto;
+}
+
+p {
+  padding-top: 3em;
+  margin-bottom: .5em;
+}
+
+input {
+  color: $text-color;
+  background-color: $secondary-background-color;
+  border: none;
+  width: 70%;
+  font-size: 1em;
+  padding: .75em;
+  font-family: $primary-font;
+}
+
+button {
+  color: $secondary-background-color;
+  background-color: $text-color;
+  border: none;
+  padding: .75em;
+  width: 70%;
+  font-size: 1em;
+  letter-spacing: .3em;
+  margin: 2em;
 }
