@@ -19,3 +19,17 @@ $('#guest-button').click(() => {
 $('#manager-button').click(() => {
   window.location = './login.html';
 })
+
+$('#login-button').click(() => {
+  if ($('#username-input').val().includes('customer') && $('#password-input').val() === 'overlook2019') {
+    window.location = './guest-view.html';
+  } else if ($('#username-input').val() === 'manager' && $('#password-input').val() === 'overlook2019') {
+    window.location = './manager-view.html';
+  } else {
+    // throw error
+  }
+})
+
+$('#cancel-login-button').click(() => {
+  window.location = './index.html';
+})

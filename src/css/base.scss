@@ -22,13 +22,13 @@ body {
 }
 
 header {
-  margin-top: 8vw;
+  margin-top: 5em;
 }
 
 h1 {
   color: $text-color;
-  letter-spacing: 10px;
-  font-size: 7vw;
+  letter-spacing: .3em;
+  font-size: 4em;
 }
 
 h2 {
@@ -36,12 +36,13 @@ h2 {
   font-family: $secondary-font;
 }
 
-.background-graphic {
-  margin-top: 10vw;
+#login-container {
+  margin-top: 7em;
   background-image: url(../images/background.png);
   background-repeat: repeat;
   background-size: contain;
-  margin-bottom: 20vw;
+  margin-bottom: 20em;
+  height: 25em;
 }
 
 #guest-button,
@@ -49,7 +50,7 @@ h2 {
   color: $secondary-background-color;
   background-color: $text-color;
   border: none;
-  padding: 4vw;
+  padding: 2em;
   width: 20em;
   font-size: 1em;
   letter-spacing: .3em;
@@ -58,8 +59,14 @@ h2 {
 
 .login-background {
   background-color: $accent-color;
-  width: 50%;
-  margin: auto;
+  width: 40%;
+  height: 30em;
+  position: absolute;
+  margin: -3em 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 p {
@@ -71,10 +78,15 @@ input {
   color: $text-color;
   background-color: $secondary-background-color;
   border: none;
-  width: 70%;
+  width: 100%;
   font-size: 1em;
   padding: .75em;
   font-family: $primary-font;
+}
+
+.login-inputs {
+  width: 50%;
+  text-align: left;
 }
 
 button {
@@ -82,8 +94,13 @@ button {
   background-color: $text-color;
   border: none;
   padding: .75em;
-  width: 70%;
+  width: 50%;
   font-size: 1em;
   letter-spacing: .3em;
-  margin: 2em;
+  margin-top: 3em;
+}
+
+#cancel-login-button {
+  margin-top: 1em;
+  background-color: $primary-background-color;
 }
