@@ -34,10 +34,27 @@ module.exports = {
   // Below is needed for webpack-dev-server
   plugins: [
     new HtmlWebpackPlugin({
+      filename: 'index.html',
       template: './src/index.html'
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'splash.html',
+      template: './src/splash.html'
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'login.html',
+      template: './src/login.html'
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'manager-view.html',
+      template: './src/manager-view.html'
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'guest-view.html',
+      template: '.src/guest-view.html'
     })
   ],
   devServer: {
-         contentBase: './dist'
+    contentBase: './dist'
   }
 };
