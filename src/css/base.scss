@@ -114,9 +114,9 @@ button {
   display: none;
 }
 
-* {
-  border: 1px solid red;
-}
+// * {
+//   border: 1px solid red;
+// }
 
 .dashboard-header {
   background-color: $accent-color;
@@ -135,7 +135,7 @@ button {
 }
 
 .title-graphic {
-  margin-left: 1em;
+  margin-left: 2em;
 }
 
 h4 {
@@ -144,6 +144,66 @@ h4 {
 }
 
 h3 {
+  letter-spacing: .3em;
+  font-size: 1.8em;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  padding: 1em;
+}
+
+.small-column {
+  border: 1em solid $accent-color;
+  padding: 1em;
+  margin: 2em;
+}
+
+.large-column {
+  border: 1em solid $text-color;
+  padding: 1em;
+  margin: 2em;
+  width: 50%;
+}
+
+.white-line {
+  border: .2em solid $secondary-background-color;
+  margin: .5em 0 1em 0;
+}
+
+h5 {
+  font-size: 1em;
   letter-spacing: .2em;
-  font-size: 1.5em;
+  margin: .2em;
+}
+
+.align-left {
+  text-align: left;
+}
+
+.inline {
+  display: flex;
+  justify-content: space-between;
+}
+
+#customer-input {
+  width: 49%;
+}
+
+#find-customer-bookings-button {
+  width: 49%;
+  margin-top: 0;
+  background-color: $accent-color;
+}
+
+#customer-bookings {
+  border: 1em solid white;
+  height: 20em;
+  margin: 1em 0;
+}
+
+.section-footer-button {
+  width: 49%;
+  margin-top: 0;
 }
