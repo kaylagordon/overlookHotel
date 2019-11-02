@@ -159,8 +159,12 @@ main {
   padding: 1em;
   margin: 2em;
   padding-bottom: 3em;
-  div {
+  .info-block {
     margin-bottom: 5em;
+  }
+  p {
+    padding-top: .2em;
+    font-size: 1em;
   }
 }
 
@@ -184,6 +188,7 @@ h5 {
 
 .align-left {
   text-align: left;
+  width: 50%;
 }
 
 .inline {
@@ -201,10 +206,17 @@ h5 {
   background-color: $accent-color;
 }
 
-#customer-bookings {
+#customer-bookings,
+#available-rooms {
   border: 1em solid white;
   height: 30em;
   margin: 1em 0;
+}
+
+#guest-booking-info {
+  border: 1em solid white;
+  height: 20em;
+  margin: 1em 0 2em 0;
 }
 
 .section-footer-button {
@@ -217,6 +229,32 @@ h6 {
   font-style: italic;
   font-size: 3em;
   color: $secondary-background-color;
+}
 
+#reward-remainder {
+  color: $secondary-background-color;
+  font-family: $secondary-font;
+  font-style: italic;
+  font-size: 1.2em;
+}
 
+#start-date,
+#end-date {
+  width: 95%;
+  margin-right: .5em;
+}
+
+#find-available-rooms-button {
+  background-color: $accent-color;
+  margin-top: 1.6em;
+  width: 40%;
+}
+
+#filter-rooms-button {
+  margin-right: .5em;
+  margin-top: 0;
+}
+
+#complete-booking-button {
+  margin-top: 0;
 }
