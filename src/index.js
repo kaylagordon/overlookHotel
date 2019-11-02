@@ -26,10 +26,22 @@ $('#login-button').click(() => {
   } else if ($('#username-input').val() === 'manager' && $('#password-input').val() === 'overlook2019') {
     window.location = './manager-view.html';
   } else {
-    // throw error
+    $('#login-error').removeClass('hide');
   }
 })
 
+$('#username-input').keyup(() => {
+  $('#login-error').addClass('hide');
+})
+
+$('#password-input').keyup(() => {
+  $('#login-error').addClass('hide');
+})
+
 $('#cancel-login-button').click(() => {
+  window.location = './index.html';
+})
+
+$('.logout-button').click(() => {
   window.location = './index.html';
 })

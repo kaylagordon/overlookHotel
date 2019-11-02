@@ -74,6 +74,11 @@ p {
   margin-bottom: .5em;
 }
 
+.error {
+  margin-bottom: -2em;
+  font-style: italic;
+}
+
 input {
   color: $text-color;
   background-color: $secondary-background-color;
@@ -103,4 +108,8 @@ button {
 #cancel-login-button {
   margin-top: 1em;
   background-color: $primary-background-color;
+}
+
+.hide {
+  display: none;
 }
