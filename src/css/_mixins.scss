@@ -1,6 +1,4 @@
-
-// @mixin make-font($size, $weight, $color) {
-//   font-size: $size;
-//   font-weight: $weight;
-//   color: $color;
-// }
+@mixin add-hover-state($cursor-state) {
+  cursor: $cursor-state;
+  transform: scale(1.04);
+}

@@ -36,6 +36,61 @@ h2 {
   font-family: $secondary-font;
 }
 
+h3 {
+  letter-spacing: .3em;
+  font-size: 1.8em;
+}
+
+h4 {
+  font-family: $secondary-font;
+  font-weight: 300;
+}
+
+h5 {
+  font-size: 1em;
+  letter-spacing: .2em;
+  margin: .2em;
+}
+
+h6 {
+  font-family: $secondary-font;
+  font-style: italic;
+  font-size: 3em;
+  color: $secondary-background-color;
+}
+
+p {
+  padding-top: 3em;
+  margin-bottom: .5em;
+}
+
+input {
+  color: $text-color;
+  background-color: $secondary-background-color;
+  border: none;
+  width: 100%;
+  font-size: 1em;
+  padding: .75em;
+  font-family: $primary-font;
+  &:hover {
+    @include add-hover-state(text);
+  }
+}
+
+button {
+  color: $secondary-background-color;
+  background-color: $text-color;
+  border: none;
+  padding: .75em;
+  width: 50%;
+  font-size: 1em;
+  letter-spacing: .3em;
+  margin-top: 3em;
+  &:hover {
+    @include add-hover-state(pointer);
+  }
+}
+
 #login-container {
   margin-top: 7em;
   background-image: url(../images/background.png);
@@ -69,24 +124,9 @@ h2 {
   align-items: center;
 }
 
-p {
-  padding-top: 3em;
-  margin-bottom: .5em;
-}
-
 .error {
   margin-bottom: -2em;
   font-style: italic;
-}
-
-input {
-  color: $text-color;
-  background-color: $secondary-background-color;
-  border: none;
-  width: 100%;
-  font-size: 1em;
-  padding: .75em;
-  font-family: $primary-font;
 }
 
 .login-inputs {
@@ -94,29 +134,11 @@ input {
   text-align: left;
 }
 
-button {
-  color: $secondary-background-color;
-  background-color: $text-color;
-  border: none;
-  padding: .75em;
-  width: 50%;
-  font-size: 1em;
-  letter-spacing: .3em;
-  margin-top: 3em;
-}
-
 #cancel-login-button {
   margin-top: 1em;
   background-color: $primary-background-color;
 }
 
-.hide {
-  display: none;
-}
-
-// * {
-//   border: 1px solid red;
-// }
 
 .dashboard-header {
   background-color: $accent-color;
@@ -136,16 +158,6 @@ button {
 
 .title-graphic {
   margin-left: 2em;
-}
-
-h4 {
-  font-family: $secondary-font;
-  font-weight: 300;
-}
-
-h3 {
-  letter-spacing: .3em;
-  font-size: 1.8em;
 }
 
 main {
@@ -180,15 +192,19 @@ main {
   margin: .5em 0 1em 0;
 }
 
-h5 {
-  font-size: 1em;
-  letter-spacing: .2em;
-  margin: .2em;
-}
-
 .align-left {
   text-align: left;
-  width: 50%;
+  width: 40%;
+}
+
+#align-left-full {
+  width: 100%;
+  input {
+    width: 49%;
+  }
+  button {
+    width: 49%;
+  }
 }
 
 .inline {
@@ -201,7 +217,7 @@ h5 {
 }
 
 #find-customer-bookings-button {
-  width: 49%;
+  width: 40%;
   margin-top: 0;
   background-color: $accent-color;
 }
@@ -222,13 +238,6 @@ h5 {
 .section-footer-button {
   width: 49%;
   margin-top: 0;
-}
-
-h6 {
-  font-family: $secondary-font;
-  font-style: italic;
-  font-size: 3em;
-  color: $secondary-background-color;
 }
 
 #reward-remainder {
@@ -257,4 +266,8 @@ h6 {
 
 #complete-booking-button {
   margin-top: 0;
+}
+
+.hide {
+  display: none;
 }
