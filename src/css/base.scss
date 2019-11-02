@@ -113,3 +113,37 @@ button {
 .hide {
   display: none;
 }
+
+* {
+  border: 1px solid red;
+}
+
+.dashboard-header {
+  background-color: $accent-color;
+  margin-top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-image: url(../images/background2.png);
+  background-size: 5em;
+  background-repeat: no-repeat;
+}
+
+.logout-button {
+  margin: 1em;
+  width: 12em;
+}
+
+.title-graphic {
+  margin-left: 1em;
+}
+
+h4 {
+  font-family: $secondary-font;
+  font-weight: 300;
+}
+
+h3 {
+  letter-spacing: .2em;
+  font-size: 1.5em;
+}
