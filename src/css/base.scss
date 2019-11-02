@@ -158,6 +158,10 @@ main {
   border: 1em solid $accent-color;
   padding: 1em;
   margin: 2em;
+  padding-bottom: 3em;
+  div {
+    margin-bottom: 5em;
+  }
 }
 
 .large-column {
@@ -199,11 +203,20 @@ h5 {
 
 #customer-bookings {
   border: 1em solid white;
-  height: 20em;
+  height: 30em;
   margin: 1em 0;
 }
 
 .section-footer-button {
   width: 49%;
   margin-top: 0;
+}
+
+h6 {
+  font-family: $secondary-font;
+  font-style: italic;
+  font-size: 3em;
+  color: $secondary-background-color;
+
+
 }
