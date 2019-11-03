@@ -32,10 +32,6 @@ Promise.all([roomsFetchData, bookingsFetchData, guestsFetchData])
   hotel = new Hotel(roomsData, bookingsRepository);
 })
 .then(() => {
-  console.log('hotel:', hotel);
-  console.log('bookings:', bookingsRepository);
-})
-.then(() => {
   addManagerDataToDom();
   addGuestDataToDOM();
 });
