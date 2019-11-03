@@ -32,7 +32,7 @@ class Hotel {
     return Math.round(totalRevenue);
   };
 
-  returnTotalSpent(date, guestId) {
+  returnTotalSpent(guestId) {
     let guestBookings = this.bookings.filter(booking => booking.userID === guestId).map(booking => booking.roomNumber);
     let totalSpent = guestBookings.reduce((totalMoney, roomNumber) => {
       this.rooms.forEach(room => {
