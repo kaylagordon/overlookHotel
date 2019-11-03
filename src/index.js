@@ -41,7 +41,7 @@ Promise.all([roomsFetchData, bookingsFetchData, guestsFetchData])
 });
 
 //DOM MANIPULATION
-let todayDate = '2019/11/03';
+let todayDate = getTodayDate();
 
 function addManagerDataToDom() {
   $('#rooms-available').text(hotel.viewRoomsAvailable(todayDate).length);
@@ -53,37 +53,6 @@ function addGuestDataToDOM() {
   guestId = parseInt(localStorage.getItem('guestId'));
   $('#total-spent').text(hotel.returnTotalSpent(guestId));
   showBookings();
-}
-
-function numifyDate(date) {
-  let year = parseInt(date.split('/')[0]);
-  let month = parseInt(date.split('/')[1]);
-  let day = parseInt(date.split('/')[2]);
-  if (day < 10 && month < 10) {
-    return parseInt(`${year}0${month}0${day}`);
-  } else if (day < 10 && month >= 10){
-    return parseInt(`${year}${month}0${day}`);
-  } else if (day >= 10 && month < 10){
-    return parseInt(`${year}0${month}${day}`);
-  } else {
-    return parseInt(`${year}${month}${day}`);
-  }
-}
-
-function stringifyDate(date) {
-  let splitDate = date.toString().split('');
-  let year = `${splitDate[0]}${splitDate[1]}${splitDate[2]}${splitDate[3]}`;
-  let month = `${splitDate[4]}${splitDate[5]}`;
-  let day = `${splitDate[6]}${splitDate[7]}`;
-  return `${year}/${month}/${day}`
-}
-
-function sortDates(dates) {
-  let numDates = [];
-  dates.forEach(date => {
-    numDates.push(numifyDate(date));
-  })
-  return numDates.sort((a, b) => b - a).map(date => stringifyDate(date))
 }
 
 function showBookings() {
@@ -133,3 +102,51 @@ $('#cancel-login-button').click(() => {
 $('.logout-button').click(() => {
   window.location = './index.html';
 })
+
+// DATES
+function getTodayDate() {
+  let date = new Date();
+  let month = date.getUTCMonth() + 1;
+  let day = date.getUTCDate();
+  let year = date.getUTCFullYear();
+  if (day < 10 && month < 10) {
+    return `${year}/0${month}/0${day}`;
+  } else if (day < 10 && month >= 10){
+    return `${year}/${month}/0${day}`;
+  } else if (day >= 10 && month < 10){
+    return `${year}/0${month}/${day}`;
+  } else {
+    return `${year}/${month}/${day}`;
+  }
+}
+
+function numifyDate(date) {
+  let year = parseInt(date.split('/')[0]);
+  let month = parseInt(date.split('/')[1]);
+  let day = parseInt(date.split('/')[2]);
+  if (day < 10 && month < 10) {
+    return parseInt(`${year}0${month}0${day}`);
+  } else if (day < 10 && month >= 10){
+    return parseInt(`${year}${month}0${day}`);
+  } else if (day >= 10 && month < 10){
+    return parseInt(`${year}0${month}${day}`);
+  } else {
+    return parseInt(`${year}${month}${day}`);
+  }
+}
+
+function stringifyDate(date) {
+  let splitDate = date.toString().split('');
+  let year = `${splitDate[0]}${splitDate[1]}${splitDate[2]}${splitDate[3]}`;
+  let month = `${splitDate[4]}${splitDate[5]}`;
+  let day = `${splitDate[6]}${splitDate[7]}`;
+  return `${year}/${month}/${day}`
+}
+
+function sortDates(dates) {
+  let numDates = [];
+  dates.forEach(date => {
+    numDates.push(numifyDate(date));
+  })
+  return numDates.sort((a, b) => b - a).map(date => stringifyDate(date))
+}
