@@ -27,4 +27,29 @@ describe('bookingRepository', function() {
       });
   });
 
+  describe('viewBookings', function() {
+    it('should return all bookings for specified guest', function() {
+      expect(bookingRepository.viewBookings(1).length).to.equal(5);
+      expect(bookingRepository.viewBookings(1)[0]).to.deep.equal({
+      id: 1,
+      userID: 1,
+      date: "2019/10/06",
+      roomNumber: 1,
+      roomServiceCharges: [ ]
+      });
+    });
+  });
+
+  describe('addBooking', function() {
+    it('should return all bookings for specified guest', function() {
+      expect(bookingRepository.makeBooking(1, '2020/10/12', 3).userID).to.equal(1);
+    });
+  });
+
+  // describe('deleteBooking', function() {
+  //   it('should return all bookings for specified guest', function() {
+  //     expect(bookingRepository.deleteBooking()).to.equal();
+  //   });
+  // });
+
 });

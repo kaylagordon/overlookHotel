@@ -44,6 +44,10 @@ class Hotel {
     }, 0);
     return Math.round(totalSpent);
   }
+
+  filterAvailableRooms(date, roomType) {
+    return this.viewRoomsAvailable(date).filter(room => room.roomType === roomType);
+  }
 };
 
 export default Hotel;

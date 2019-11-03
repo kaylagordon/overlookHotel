@@ -48,13 +48,26 @@ describe('Hotel', function() {
 
   describe('returnTotalRevenue', function() {
     it('should return total money spent by all guests on a specified date', function() {
-      expect(hotel.returnTotalRevenue("2019/11/22")).to.equal(835.78);
+      expect(hotel.returnTotalRevenue('2019/11/22')).to.equal(835.78);
     });
   });
 
   describe('returnTotalSpent', function() {
     it('should return total money spent by one guest prior to a specified date', function() {
-      expect(hotel.returnTotalSpent("2019/11/23", 1)).to.equal(2044);
+      expect(hotel.returnTotalSpent('2019/11/23', 1)).to.equal(2044);
+    });
+  });
+
+  describe('filterAvailableRooms', function() {
+    it('should return available rooms that match given room type', function() {
+      expect(hotel.filterAvailableRooms('2019/12/23', 'residential suite')).to.deep.equal([{
+        number: 1,
+        roomType: "residential suite",
+        bidet: true,
+        bedSize: "queen",
+        numBeds: 1,
+        costPerNight: 358.4
+      }]);
     });
   });
 
