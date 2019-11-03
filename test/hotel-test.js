@@ -2,16 +2,16 @@ import chai from 'chai';
 const expect = chai.expect;
 
 import Hotel from '../src/hotel';
-import BookingRepository from '../src/bookingRepository';
-import guestTestData from '../test-data/guest-test-data.js';
+import BookingsRepository from '../src/bookingsRepository';
+import guestsTestData from '../test-data/guests-test-data.js';
 import bookingsTestData from '../test-data/bookings-test-data.js';
 import roomsTestData from '../test-data/rooms-test-data.js';
 
 describe('Hotel', function() {
-  let hotel, bookingRepository;
+  let hotel, bookingsRepository;
   beforeEach(() => {
-    bookingRepository = new BookingRepository(bookingsTestData);
-    hotel = new Hotel(roomsTestData, bookingRepository);
+    bookingsRepository = new BookingsRepository(bookingsTestData);
+    hotel = new Hotel(roomsTestData, bookingsRepository);
   });
 
   it('should be a function', function() {

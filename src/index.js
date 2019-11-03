@@ -1,17 +1,42 @@
-// This is the JavaScript entry file - your code begins here
-// Do not delete or rename this file ********
-
-// An example of how you import jQuery into a JS file if you use jQuery in that file
+// IMPORTS
 import $ from 'jquery';
-
-// An example of how you tell webpack to use a CSS (SCSS) file
 import './css/base.scss';
+import Hotel from '../src/hotel';
+import BookingsRepository from '../src/bookingsRepository';
 
-// An example of how you tell webpack to use an image (also need to link to it in the index.html)
-// import './images/turing-logo.png'
+// FETCH
+let roomsFetchData = fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/rooms/rooms')
+.then(response => response.json());
 
-console.log('This is the JavaScript entry file - your code begins here.');
+let bookingsFetchData = fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/bookings/bookings')
+.then(response => response.json());
 
+let guestsFetchData = fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/users/users')
+.then(response => response.json());
+
+let roomsData;
+let bookingsData;
+let guestsData;
+let bookingsRepository;
+let hotel;
+
+Promise.all([roomsFetchData, bookingsFetchData, guestsFetchData])
+.then(data => {
+  roomsData = data[0].rooms;
+  bookingsData = data[1].bookings;
+  guestsData = data[2].users;
+})
+.then(() => {
+  bookingsRepository = new BookingsRepository(bookingsData);
+  hotel = new Hotel(roomsData, bookingsRepository);
+})
+.then(() => {
+  //do all the things
+  console.log('hotel:', hotel);
+  console.log('bookings:', bookingsRepository);
+});
+
+// HTML PAGE NAVIGATION
 $('#guest-button').click(() => {
   window.location = './login.html';
 })
