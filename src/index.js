@@ -73,7 +73,16 @@ $('#find-available-rooms-button').click(() => {
   if (checkDate(date)) {
     showAvailableRooms(date);
   } else {
-    $('#guest-booking-error').removeClass('hide');
+    $('#available-rooms').text('');
+    $('#available-rooms').append(`
+      <br/>
+      That date is in the past.
+      <br/>
+      We do not have time travelling capabilities (yet).
+      <br/>
+      Please choose another date.
+      `
+    )
   }
 });
 
