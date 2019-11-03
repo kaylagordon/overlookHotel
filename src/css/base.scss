@@ -261,6 +261,14 @@ main {
   margin-top: 0;
 }
 
+.individual-rooms {
+  padding: .5em;
+  &:hover {
+    @include add-hover-state(pointer);
+    background-color: $secondary-background-color;
+  }
+}
+
 .hide {
   display: none;
 }

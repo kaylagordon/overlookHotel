@@ -83,6 +83,7 @@ function showAvailableRooms(date) {
     hotel.viewRoomsAvailable(date).forEach(room => {
       $('#available-rooms').append(
         `
+        <div class='individual-rooms'>
         <b>ROOM TYPE</b>: ${room.roomType}
         <b>BED SIZE</b>: ${room.bedSize}
         </br>
@@ -90,6 +91,7 @@ function showAvailableRooms(date) {
         <b>PRICE</b>: $${room.costPerNight}
         <br/>
         <br/>
+        </div>
         `
       )
     })
