@@ -45,7 +45,7 @@ const bookingsTestData = [
   id: 7,
   userID: 1,
   date: "2019/11/22",
-  roomNumber: 2,
+  roomNumber: 1,
   roomServiceCharges: [ ]
   },
   {
@@ -65,7 +65,7 @@ const bookingsTestData = [
   {
   id: 10,
   userID: 2,
-  date: "2019/11/22",
+  date: "2019/12/23",
   roomNumber: 3,
   roomServiceCharges: [ ]
   }
