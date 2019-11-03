@@ -73,7 +73,7 @@ $('#find-available-rooms-button').click(() => {
   if (checkDate(date)) {
     showAvailableRooms(date);
   } else {
-    //throw error
+    $('#guest-booking-error').removeClass('hide');
   }
 });
 
@@ -188,8 +188,8 @@ function sortDates(dates) {
 }
 
 function checkDate(inputDate) {
-  let guestDate = numifyDate(inputDate);
-  let todayDate = numifyDate(getTodayDate());
+  let guestDate = numifyDate(inputDate, '/');
+  let todayDate = numifyDate(getTodayDate(), '/');
   if (guestDate > todayDate) {
     return true;
   } else {
