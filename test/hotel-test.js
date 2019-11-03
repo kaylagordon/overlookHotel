@@ -40,15 +40,15 @@ describe('Hotel', function() {
     });
   });
 
-  describe('returnPercentRoomsAvailable', function() {
+  describe('returnPercentRoomsOccupied', function() {
     it('should return percentage of available rooms for a specified date', function() {
-      expect(hotel.returnPercentRoomsAvailable('2019/10/12')).to.equal(67);
+      expect(hotel.returnPercentRoomsOccupied('2019/10/12')).to.equal(33);
     });
   });
 
   describe('returnTotalRevenue', function() {
     it('should return total money spent by all guests on a specified date', function() {
-      expect(hotel.returnTotalRevenue('2019/11/22')).to.equal(835.78);
+      expect(hotel.returnTotalRevenue('2019/11/22')).to.equal(836);
     });
   });
 

@@ -31,10 +31,21 @@ Promise.all([roomsFetchData, bookingsFetchData, guestsFetchData])
   hotel = new Hotel(roomsData, bookingsRepository);
 })
 .then(() => {
-  //do all the things
   console.log('hotel:', hotel);
   console.log('bookings:', bookingsRepository);
+})
+.then(() => {
+  addDataToDom();
 });
+
+//DOM MANIPULATION
+let todayDate = '2019/11/03';
+
+function addDataToDom() {
+  $('#rooms-available').text(hotel.viewRoomsAvailable(todayDate).length);
+  $('#percent-occupied').text(`${hotel.returnPercentRoomsOccupied(todayDate)}%`);
+  $('#total-revenue').text(`$${hotel.returnTotalRevenue(todayDate)}`);
+}
 
 // HTML PAGE NAVIGATION
 $('#guest-button').click(() => {

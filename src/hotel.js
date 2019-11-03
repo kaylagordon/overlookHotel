@@ -15,9 +15,9 @@ class Hotel {
     return availableRooms;
   };
 
-  returnPercentRoomsAvailable(date) {
+  returnPercentRoomsOccupied(date) {
     let decimal = this.viewRoomsAvailable(date).length / this.rooms.length;
-    let percent = Math.round(decimal * 100);
+    let percent = 100 - Math.round(decimal * 100);
     return percent;
   }
 
@@ -29,7 +29,7 @@ class Hotel {
       }
       return totalMoney;
     }, 0);
-    return totalRevenue;
+    return Math.round(totalRevenue);
   };
 
   returnTotalSpent(date, guestId) {
