@@ -47,8 +47,9 @@ function addManagerDataToDom() {
 
 function addGuestDataToDOM() {
   guestId = parseInt(localStorage.getItem('guestId'));
-  $('#total-spent').text(hotel.returnTotalSpent(guestId));
   showBookings();
+  $('#total-spent').text(`$${hotel.returnTotalSpent(guestId)}`);
+  
 }
 
 function showBookings() {
