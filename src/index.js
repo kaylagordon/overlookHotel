@@ -53,15 +53,54 @@ function addGuestDataToDOM() {
 }
 
 function showBookings() {
+  $('#guest-booking-info').text('');
   let bookingDates = bookingsRepository.viewBookings(guestId).map(booking => booking.date)
   let sortedBookings = sortDates(bookingDates);
   sortedBookings.forEach(date => {
     $('#guest-booking-info').append(
-    `<b>DATE</b>: ${date}
-    <br/>
-    <br/>`)
+      `
+      <b>DATE</b>: ${date}
+      <br/>
+      <br/>
+      `
+    )
   })
 }
+
+$('#find-available-rooms-button').click(() => {
+  let numDate = numifyDate($('#start-date').val(), '-');
+  let date = stringifyDate(numDate);
+  if (checkDate(date)) {
+    showAvailableRooms(date);
+  } else {
+    //throw error
+  }
+});
+
+function showAvailableRooms(date) {
+  $('#available-rooms').text('');
+  if (hotel.viewRoomsAvailable(date).length) {
+    hotel.viewRoomsAvailable(date).forEach(room => {
+      $('#available-rooms').append(
+        `
+        <b>ROOM TYPE</b>: ${room.roomType}
+        <b>BED SIZE</b>: ${room.bedSize}
+        </br>
+        <b>NUMBER OF BEDS</b>: ${room.numBeds}
+        <b>PRICE</b>: $${room.costPerNight}
+        <br/>
+        <br/>
+        `
+      )
+    })
+  } else {
+    $('#available-rooms').append(
+      `
+      <b>We are so sorry, but there are no rooms available for that date. Please try another date.</b>
+      `
+    )
+  }
+};
 
 // HTML PAGE NAVIGATION
 $('#guest-button').click(() => {
@@ -117,10 +156,10 @@ function getTodayDate() {
   }
 }
 
-function numifyDate(date) {
-  let year = parseInt(date.split('/')[0]);
-  let month = parseInt(date.split('/')[1]);
-  let day = parseInt(date.split('/')[2]);
+function numifyDate(date, character) {
+  let year = parseInt(date.split(character)[0]);
+  let month = parseInt(date.split(character)[1]);
+  let day = parseInt(date.split(character)[2]);
   if (day < 10 && month < 10) {
     return parseInt(`${year}0${month}0${day}`);
   } else if (day < 10 && month >= 10){
@@ -143,7 +182,17 @@ function stringifyDate(date) {
 function sortDates(dates) {
   let numDates = [];
   dates.forEach(date => {
-    numDates.push(numifyDate(date));
+    numDates.push(numifyDate(date, '/'));
   })
   return numDates.sort((a, b) => b - a).map(date => stringifyDate(date))
+}
+
+function checkDate(inputDate) {
+  let guestDate = numifyDate(inputDate);
+  let todayDate = numifyDate(getTodayDate());
+  if (guestDate > todayDate) {
+    return true;
+  } else {
+    return false;
+  }
 }
