@@ -94,9 +94,11 @@ function showAvailableRooms(date) {
         `
         <div class='individual-rooms'>
         <b>ROOM TYPE</b>: ${room.roomType}
+        </br>
         <b>BED SIZE</b>: ${room.bedSize}
         </br>
         <b>NUMBER OF BEDS</b>: ${room.numBeds}
+        </br>
         <b>PRICE</b>: $${room.costPerNight}
         <br/>
         <br/>
@@ -104,6 +106,7 @@ function showAvailableRooms(date) {
         `
       )
     })
+    makeHoverable();
   } else {
     $('#available-rooms').append(
       `
@@ -112,6 +115,20 @@ function showAvailableRooms(date) {
     )
   }
 };
+
+function makeHoverable() {
+  $('.individual-rooms').addClass('hoverable');
+}
+
+$('#available-rooms').click(() => {
+  if ($('.individual-rooms').hasClass('hoverable')) {
+    $('.individual-rooms').removeClass('hoverable');
+    $(event.target).closest('div').addClass('clicked');
+  } else if ($(event.target).closest('div').hasClass('clicked')) {
+    $('.individual-rooms').addClass('hoverable');
+    $(event.target).closest('div').removeClass('clicked');
+  }
+});
 
 // HTML PAGE NAVIGATION
 $('#guest-button').click(() => {

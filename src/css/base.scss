@@ -263,10 +263,18 @@ main {
 
 .individual-rooms {
   padding: .5em;
+}
+
+.hoverable {
   &:hover {
     @include add-hover-state(pointer);
     background-color: $secondary-background-color;
   }
+}
+
+.clicked {
+  @include add-hover-state(pointer);
+  background-color: $secondary-background-color;
 }
 
 .hide {
