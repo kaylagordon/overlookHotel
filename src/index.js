@@ -228,6 +228,10 @@ $('.logout-button').click(() => {
   window.location = './index.html';
 })
 
+$('.manager-go-back-button').click(() => {
+  window.location = './manager-view.html';
+})
+
 // DATES
 function getTodayDate() {
   let date = new Date();
