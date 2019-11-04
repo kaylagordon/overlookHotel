@@ -48,6 +48,10 @@ module.exports = {
     new HtmlWebpackPlugin({
       filename: 'guest-view.html',
       template: './src/guest-view.html'
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'manager-guest-view.html',
+      template: './src/manager-guest-view.html'
     })
   ],
   devServer: {

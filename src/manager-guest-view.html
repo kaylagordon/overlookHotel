@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Slab|Montserrat:400,700&display=swap" rel="stylesheet">
+    <title></title>
+  </head>
+  <body>
+    <header class='dashboard-header'>
+      <div class='title-graphic'>
+        <h4>the</h4>
+        <h3>OVERLOOK</h3>
+      </div>
+      <button type='button' name='logout-button' class='logout-button'>LOG OUT</button>
+    </header>
+    <main>
+      <section class='small-column'>
+        <h3 class='section-header'><span class='guest-name'></span>'S BOOKINGS</h3>
+        <div class='white-line'></div>
+        <section id='guest-booking-info'></section>
+        <h5>TOTAL SPENT:</h5>
+        <h6 id='total-spent'></h6>
+        <p>GUEST IS <span id='reward-remainder'></span>  <br/> FROM PREMIER STATUS!</p>
+      </section>
+      <section class='large-column'>
+        <section id='guest-success-page' class='hide'>
+          <h3>CONFIRMED!</h3>
+          <p>We are so glad you are staying with us.</p>
+          <button type='button' name='book-another-button' class='book-another-button'>BOOK ANOTHER ROOM</button>
+          <button type='button' name='logout-button' class='logout-button'>LOG OUT</button>
+        </section>
+        <section id='guest-filter-page' class='hide'>
+          <h5>FILTER BY:</h5>
+          <select name='filter-rooms-selection'>
+            <option value='single room'>SINGLE ROOM</option>
+            <option value='junior suite'>JUNIOR SUITE</option>
+            <option value='suite'>SUITE</option>
+            <option value='residential suite'>RESIDENTIAL SUITE</option>
+          </select>
+          <button type='button' name='filter-button' class='filter-button'>FILTER</button>
+        </section>
+        <h3 class='section-header'>SCHEDULE A STAY</h3>
+        <div class='white-line'></div>
+        <div class='align-left' id='align-left-full'>
+          <h5>DATE:</h5>
+          <div class='inline'>
+            <input type='date' name='start-date' value='' id='start-date'>
+            <button type='button' name='find-available-rooms-button' id='find-available-rooms-button'>FIND ROOMS</button>
+          </div>
+        </div>
+        <section id='available-rooms'>
+        </section>
+        <div class='inline'>
+          <button type='button' name='add-booking-button' class='section-footer-button' id='add-booking-button'>ADD BOOKING</button>
+          <button type='button' name='remove-booking-button' class='section-footer-button' id='remove-booking-button'>REMOVE BOOKING</button>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

@@ -49,6 +49,8 @@ function addManagerDataToDom() {
 function addGuestDataToDOM() {
   guestId = parseInt(localStorage.getItem('guestId'));
   showBookings();
+  customerName = localStorage.getItem('customerName').toUpperCase();
+  $('.guest-name').text(customerName);
   $('#total-spent').text(`$${hotel.returnTotalSpent(guestId)}`);
   $('#reward-remainder').text(`$${10000 - hotel.returnTotalSpent(guestId)}`)
 }
@@ -175,6 +177,15 @@ $('.filter-button').click(() => {
   showAvailableRooms(filteredRooms);
 });
 
+let customerName;
+function logIn() {
+  let customer = guestsData.find(guest => guest.name === $('#customer-input').val());
+  guestId = customer.id;
+  localStorage.setItem('guestId', guestId);
+  customerName = customer.name;
+  localStorage.setItem('customerName', customerName);
+}
+
 // HTML PAGE NAVIGATION
 $('#guest-button').click(() => {
   window.location = './login.html';
@@ -202,6 +213,11 @@ $('#username-input').keyup(() => {
 
 $('#password-input').keyup(() => {
   $('#login-error').addClass('hide');
+})
+
+$('#find-customer-button').click(() => {
+  logIn();
+  window.location = './manager-guest-view.html';
 })
 
 $('#cancel-login-button').click(() => {
