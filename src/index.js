@@ -97,9 +97,9 @@ function showAvailableRooms(method) {
         <b id='x${room.number}x'></b>
         <b>ROOM TYPE</b>: ${room.roomType}
         </br>
-        <b>BED SIZE</b>: ${room.bedSize}
-        </br>
         <b>NUMBER OF BEDS</b>: ${room.numBeds}
+        </br>
+        <b>BED SIZE</b>: ${room.bedSize}
         </br>
         <b>PRICE</b>: $${room.costPerNight}
         <br/>
@@ -163,6 +163,7 @@ $('.book-another-button').click(() => {
 });
 
 $('.show-filter-options-button').click(() => {
+  $('.individual-rooms').removeClass('hoverable');
   $('#guest-filter-page').removeClass('hide');
 });
 
