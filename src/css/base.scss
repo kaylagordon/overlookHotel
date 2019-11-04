@@ -265,6 +265,23 @@ main {
   padding: .5em;
 }
 
+#guest-success-page {
+  position: absolute;
+  margin-top: 3em;
+  background-color: $accent-color;
+  padding: 2em;
+  button {
+    margin: 1em;
+    width: 90%;
+  }
+  .logout-button {
+    background-color: $primary-background-color;
+  }
+  p {
+    padding-top: .5em;
+  }
+}
+
 .hoverable {
   &:hover {
     @include add-hover-state(pointer);

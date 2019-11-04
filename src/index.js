@@ -49,7 +49,7 @@ function addGuestDataToDOM() {
   guestId = parseInt(localStorage.getItem('guestId'));
   showBookings();
   $('#total-spent').text(`$${hotel.returnTotalSpent(guestId)}`);
-  $('#reward-remainder').text(`$${7000 - hotel.returnTotalSpent(guestId)}`)
+  $('#reward-remainder').text(`$${10000 - hotel.returnTotalSpent(guestId)}`)
 }
 
 function showBookings() {
@@ -129,20 +129,35 @@ $('#available-rooms').click(() => {
 
 $('.complete-booking-button').click(() => {
   if ($('.clicked').html()) {
-    let numDate = numifyDate($('#start-date').val(), '-');
-    let bookingDate = stringifyDate(numDate);
-    let roomNumber = parseInt($('.clicked').html().split('x')[1]);
-    let postData = bookingsRepository.makeBooking(guestId, bookingDate, roomNumber);
-    fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/bookings/bookings', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(postData)
-    });
+    completeBooking();
   } else {
     //throw error
   }
+});
+
+function completeBooking() {
+  let numDate = numifyDate($('#start-date').val(), '-');
+  let bookingDate = stringifyDate(numDate);
+  let roomNumber = parseInt($('.clicked').html().split('x')[1]);
+  let postData = bookingsRepository.makeBooking(guestId, bookingDate, roomNumber);
+  fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/bookings/bookings', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(postData)
+  })
+  .then(() => showSuccessPage());
+}
+
+function showSuccessPage() {
+  $('.individual-rooms').addClass('hoverable');
+  $('.clicked').removeClass('clicked');
+  $('#guest-success-page').removeClass('hide');
+}
+
+$('.book-another-button').click(() => {
+  $('#guest-success-page').addClass('hide');
 });
 
 // HTML PAGE NAVIGATION
