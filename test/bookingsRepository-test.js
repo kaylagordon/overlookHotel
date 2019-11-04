@@ -1,24 +1,24 @@
 import chai from 'chai';
 const expect = chai.expect;
 
-import BookingRepository from '../src/bookingRepository';
-import guestTestData from '../test-data/guest-test-data.js';
+import BookingsRepository from '../src/bookingsRepository';
+import guestsTestData from '../test-data/guests-test-data.js';
 import bookingsTestData from '../test-data/bookings-test-data.js';
 import roomsTestData from '../test-data/rooms-test-data.js';
 
-describe('bookingRepository', function() {
-  let bookingRepository;
+describe('bookingsRepository', function() {
+  let bookingsRepository;
   beforeEach(() => {
-    bookingRepository = new BookingRepository(bookingsTestData);
+    bookingsRepository = new BookingsRepository(bookingsTestData);
   });
 
   it('should be a function', function() {
-    expect(BookingRepository).to.be.a('function');
+    expect(BookingsRepository).to.be.a('function');
   });
 
   it('should hold bookings', function() {
-    expect(bookingRepository.bookings.length).to.equal(10);
-    expect(bookingRepository.bookings[3]).to.deep.equal(  {
+    expect(bookingsRepository.bookings.length).to.equal(10);
+    expect(bookingsRepository.bookings[3]).to.deep.equal(  {
       id: 4,
       userID: 2,
       date: "2019/11/15",
@@ -29,8 +29,8 @@ describe('bookingRepository', function() {
 
   describe('viewBookings', function() {
     it('should return all bookings for specified guest', function() {
-      expect(bookingRepository.viewBookings(1).length).to.equal(5);
-      expect(bookingRepository.viewBookings(1)[0]).to.deep.equal({
+      expect(bookingsRepository.viewBookings(1).length).to.equal(5);
+      expect(bookingsRepository.viewBookings(1)[0]).to.deep.equal({
       id: 1,
       userID: 1,
       date: "2019/10/06",
@@ -42,7 +42,7 @@ describe('bookingRepository', function() {
 
   describe('addBooking', function() {
     it('should return all bookings for specified guest', function() {
-      expect(bookingRepository.makeBooking(1, '2020/10/12', 3).userID).to.equal(1);
+      expect(bookingsRepository.makeBooking(1, '2020/10/12', 3).userID).to.equal(1);
     });
   });
 

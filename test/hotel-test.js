@@ -2,16 +2,16 @@ import chai from 'chai';
 const expect = chai.expect;
 
 import Hotel from '../src/hotel';
-import BookingRepository from '../src/bookingRepository';
-import guestTestData from '../test-data/guest-test-data.js';
+import BookingsRepository from '../src/bookingsRepository';
+import guestsTestData from '../test-data/guests-test-data.js';
 import bookingsTestData from '../test-data/bookings-test-data.js';
 import roomsTestData from '../test-data/rooms-test-data.js';
 
 describe('Hotel', function() {
-  let hotel, bookingRepository;
+  let hotel, bookingsRepository;
   beforeEach(() => {
-    bookingRepository = new BookingRepository(bookingsTestData);
-    hotel = new Hotel(roomsTestData, bookingRepository);
+    bookingsRepository = new BookingsRepository(bookingsTestData);
+    hotel = new Hotel(roomsTestData, bookingsRepository);
   });
 
   it('should be a function', function() {
@@ -40,15 +40,15 @@ describe('Hotel', function() {
     });
   });
 
-  describe('returnPercentRoomsAvailable', function() {
+  describe('returnPercentRoomsOccupied', function() {
     it('should return percentage of available rooms for a specified date', function() {
-      expect(hotel.returnPercentRoomsAvailable('2019/10/12')).to.equal(67);
+      expect(hotel.returnPercentRoomsOccupied('2019/10/12')).to.equal(33);
     });
   });
 
   describe('returnTotalRevenue', function() {
     it('should return total money spent by all guests on a specified date', function() {
-      expect(hotel.returnTotalRevenue('2019/11/22')).to.equal(835.78);
+      expect(hotel.returnTotalRevenue('2019/11/22')).to.equal(836);
     });
   });
 

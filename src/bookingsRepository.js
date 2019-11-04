@@ -1,4 +1,4 @@
-class BookingRepository {
+class BookingsRepository {
   constructor(bookings) {
     this.bookings = bookings;
   }
@@ -9,11 +9,9 @@ class BookingRepository {
 
   makeBooking(guestId, date, room) {
     return {
-      id: Date.now(),
       userID: guestId,
       date: date,
-      roomNumber: room,
-      roomServiceCharges: []
+      roomNumber: room
     };
   }
 
@@ -23,4 +21,4 @@ class BookingRepository {
 
 }
 
-export default BookingRepository;
+export default BookingsRepository;
