@@ -252,12 +252,12 @@ main {
   font-size: 1.2em;
 }
 
-#filter-rooms-button {
+.filter-rooms-button {
   margin-right: .5em;
   margin-top: 0;
 }
 
-#complete-booking-button {
+.complete-booking-button {
   margin-top: 0;
 }
 
@@ -275,6 +275,7 @@ main {
 .clicked {
   @include add-hover-state(pointer);
   background-color: $secondary-background-color;
+  border: 1em solid $accent-color;
 }
 
 .hide {

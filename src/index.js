@@ -93,6 +93,7 @@ function showAvailableRooms(date) {
       $('#available-rooms').append(
         `
         <div class='individual-rooms'>
+        <b id='x${room.number}x'></b>
         <b>ROOM TYPE</b>: ${room.roomType}
         </br>
         <b>BED SIZE</b>: ${room.bedSize}
@@ -106,7 +107,7 @@ function showAvailableRooms(date) {
         `
       )
     })
-    makeHoverable();
+    $('.individual-rooms').addClass('hoverable');
   } else {
     $('#available-rooms').append(
       `
@@ -116,10 +117,6 @@ function showAvailableRooms(date) {
   }
 };
 
-function makeHoverable() {
-  $('.individual-rooms').addClass('hoverable');
-}
-
 $('#available-rooms').click(() => {
   if ($('.individual-rooms').hasClass('hoverable')) {
     $('.individual-rooms').removeClass('hoverable');
@@ -127,6 +124,24 @@ $('#available-rooms').click(() => {
   } else if ($(event.target).closest('div').hasClass('clicked')) {
     $('.individual-rooms').addClass('hoverable');
     $(event.target).closest('div').removeClass('clicked');
+  }
+});
+
+$('.complete-booking-button').click(() => {
+  if ($('.clicked').html()) {
+    let numDate = numifyDate($('#start-date').val(), '-');
+    let bookingDate = stringifyDate(numDate);
+    let roomNumber = parseInt($('.clicked').html().split('x')[1]);
+    let postData = bookingsRepository.makeBooking(guestId, bookingDate, roomNumber);
+    fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/bookings/bookings', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(postData)
+    });
+  } else {
+    //throw error
   }
 });
 
