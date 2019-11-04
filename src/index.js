@@ -35,6 +35,7 @@ Promise.all([roomsFetchData, bookingsFetchData, guestsFetchData])
   addManagerDataToDom();
   addGuestDataToDOM();
 });
+//.catch
 
 //DOM MANIPULATION
 let todayDate = getTodayDate();
@@ -71,7 +72,7 @@ $('#find-available-rooms-button').click(() => {
   let numDate = numifyDate($('#start-date').val(), '-');
   let date = stringifyDate(numDate);
   if (checkDate(date)) {
-    showAvailableRooms(date);
+    showAvailableRooms(hotel.viewRoomsAvailable(date));
   } else {
     $('#available-rooms').text('');
     $('#available-rooms').append(`
@@ -86,10 +87,10 @@ $('#find-available-rooms-button').click(() => {
   }
 });
 
-function showAvailableRooms(date) {
+function showAvailableRooms(method) {
   $('#available-rooms').text('');
-  if (hotel.viewRoomsAvailable(date).length) {
-    hotel.viewRoomsAvailable(date).forEach(room => {
+  if (method.length) {
+    method.forEach(room => {
       $('#available-rooms').append(
         `
         <div class='individual-rooms'>
@@ -148,16 +149,29 @@ function completeBooking() {
     body: JSON.stringify(postData)
   })
   .then(() => showSuccessPage());
+  //.catch
 }
 
 function showSuccessPage() {
-  $('.individual-rooms').addClass('hoverable');
   $('.clicked').removeClass('clicked');
   $('#guest-success-page').removeClass('hide');
 }
 
 $('.book-another-button').click(() => {
+  $('.individual-rooms').addClass('hoverable');
   $('#guest-success-page').addClass('hide');
+});
+
+$('.show-filter-options-button').click(() => {
+  $('#guest-filter-page').removeClass('hide');
+});
+
+$('.filter-button').click(() => {
+  let numDate = numifyDate($('#start-date').val(), '-');
+  let bookingDate = stringifyDate(numDate);
+  $('#guest-filter-page').addClass('hide');
+  let filteredRooms = hotel.filterAvailableRooms(bookingDate, $('select').val());
+  showAvailableRooms(filteredRooms);
 });
 
 // HTML PAGE NAVIGATION
