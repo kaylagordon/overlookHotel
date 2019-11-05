@@ -48,10 +48,6 @@ class Hotel {
   filterAvailableRooms(date, roomType) {
     return this.viewRoomsAvailable(date).filter(room => room.roomType === roomType);
   }
-
-  findBookingtoDelete() {
-    
-  }
 };
 
 export default Hotel;

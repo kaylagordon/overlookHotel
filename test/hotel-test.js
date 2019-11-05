@@ -54,7 +54,7 @@ describe('Hotel', function() {
 
   describe('returnTotalSpent', function() {
     it('should return total money spent by one guest prior to a specified date', function() {
-      expect(hotel.returnTotalSpent('2019/11/23', 1)).to.equal(2044);
+      expect(hotel.returnTotalSpent(1)).to.equal(2044);
     });
   });
 
