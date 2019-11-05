@@ -158,6 +158,8 @@ button {
 .manager-go-back-button {
   margin: 1em;
   width: 18em;
+  color: $text-color;
+  font-weight: 600;
 }
 
 .title-graphic {
@@ -293,6 +295,8 @@ main {
   }
   .logout-button {
     background-color: $primary-background-color;
+    color: $text-color;
+    font-weight: 600;
   }
   p {
     padding-top: .5em;

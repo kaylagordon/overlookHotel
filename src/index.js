@@ -113,7 +113,7 @@ function showAvailableRooms(method) {
     method.forEach(room => {
       $('#available-rooms').append(
         `
-        <div class='individual-rooms'>
+        <div class='individual-rooms' tabindex=1>
         <b id='x${room.number}x'></b>
         <b>ROOM TYPE</b>: ${room.roomType}
         </br>
@@ -139,6 +139,7 @@ function showAvailableRooms(method) {
 };
 
 $('#available-rooms').click(() => {
+  console.log(event.target);
   if ($('.individual-rooms').hasClass('hoverable')) {
     $('.individual-rooms').removeClass('hoverable');
     $(event.target).closest('div').addClass('clicked');
