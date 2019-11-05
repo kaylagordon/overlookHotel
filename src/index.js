@@ -34,8 +34,10 @@ Promise.all([roomsFetchData, bookingsFetchData, guestsFetchData])
 .then(() => {
   addManagerDataToDom();
   addGuestDataToDOM();
+})
+.catch(error => {
+  console.log(error);
 });
-//.catch
 
 //DOM MANIPULATION
 let todayDate = getTodayDate();
@@ -165,6 +167,9 @@ $('.manager-bookings-list').click(() => {
         id: bookingId
       })
     }).then(() => hideDeletedBooking())
+    .catch(error => {
+      console.log(error);
+    });
   } else if ($(event.target).closest('div').hasClass('clicked')) {
     $('.bookings-date').addClass('hoverable');
     $(event.target).closest('div').removeClass('clicked');
@@ -195,15 +200,6 @@ $('.complete-booking-button').click(() => {
   }
 });
 
-// $('.delete-booking-button').click(() => {
-//   // console.log(guestId);
-//   console.log(event.target.parentElement.children[2].children)
-//   if (event.target.parentElement.children[2].children.hasClass('clicked'))
-//   {
-//     console.log('hu');
-//   }
-// })
-
 function completeBooking() {
   let numDate = numifyDate($('#start-date').val(), '-');
   let bookingDate = stringifyDate(numDate);
@@ -216,8 +212,10 @@ function completeBooking() {
     },
     body: JSON.stringify(postData)
   })
-  .then(() => showSuccessPage());
-  //.catch
+  .then(() => showSuccessPage())
+  .catch(error => {
+    console.log(error);
+  });
 }
 
 function showSuccessPage() {
