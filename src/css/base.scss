@@ -1,6 +1,7 @@
 @import 'variables';
 @import 'mixins';
 
+// ALL
 .clearfix:after {
     content: ' ';
     display: table;
@@ -15,6 +16,7 @@
   padding: 0;
 }
 
+// MAIN SECTIONS
 body {
   background-color: $primary-background-color;
   text-align: center;
@@ -25,6 +27,43 @@ header {
   margin-top: 5em;
 }
 
+main {
+  display: flex;
+  justify-content: center;
+  padding: 1em;
+}
+
+#login-container {
+  margin-top: 7em;
+  background-image: url(../images/background.png);
+  background-repeat: repeat;
+  background-size: contain;
+  margin-bottom: 20em;
+  height: 25em;
+}
+
+.small-column {
+  border: 1em solid $accent-color;
+  padding: 1em;
+  margin: 2em;
+  padding-bottom: 3em;
+  .info-block {
+    margin-bottom: 5em;
+  }
+  p {
+    padding-top: .2em;
+    font-size: 1em;
+  }
+}
+
+.large-column {
+  border: 1em solid $text-color;
+  padding: 1em;
+  margin: 2em;
+  width: 50%;
+}
+
+// TEXT
 h1 {
   color: $text-color;
   letter-spacing: .3em;
@@ -77,6 +116,12 @@ input {
   }
 }
 
+select {
+  background-color: $secondary-background-color;
+  font-size: 1em;
+}
+
+// BUTTONS
 button {
   color: $secondary-background-color;
   background-color: $text-color;
@@ -91,63 +136,22 @@ button {
   }
 }
 
-#login-container {
-  margin-top: 7em;
-  background-image: url(../images/background.png);
-  background-repeat: repeat;
-  background-size: contain;
-  margin-bottom: 20em;
-  height: 25em;
-}
-
 #guest-button,
 #manager-button {
-  color: $secondary-background-color;
-  background-color: $text-color;
-  border: none;
   padding: 2em;
   width: 20em;
-  font-size: 1em;
-  letter-spacing: .3em;
   margin: 10em 2em;
-}
-
-.login-background {
-  background-color: $accent-color;
-  width: 40%;
-  height: 30em;
-  position: absolute;
-  margin: -3em 30%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.error {
-  margin-bottom: -2em;
-  font-style: italic;
-}
-
-.login-inputs {
-  width: 50%;
-  text-align: left;
 }
 
 #cancel-login-button {
   margin-top: 1em;
 }
 
-
-.dashboard-header {
-  background-color: $accent-color;
-  margin-top: 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-image: url(../images/background2.png);
-  background-size: 7em;
-  background-repeat: no-repeat;
+.manager-go-back-button {
+  margin: 1em;
+  width: 18em;
+  color: $text-color;
+  font-weight: 600;
 }
 
 .logout-button {
@@ -155,79 +159,100 @@ button {
   width: 12em;
 }
 
-.manager-go-back-button {
-  margin: 1em;
-  width: 18em;
-}
-
-.title-graphic {
-  margin-left: 2em;
-}
-
-main {
-  display: flex;
-  justify-content: center;
-  padding: 1em;
-}
-
-.small-column {
-  border: 1em solid $accent-color;
-  padding: 1em;
-  margin: 2em;
-  padding-bottom: 3em;
-  .info-block {
-    margin-bottom: 5em;
-  }
-  p {
-    padding-top: .2em;
-    font-size: 1em;
-  }
-}
-
-.large-column {
-  border: 1em solid $text-color;
-  padding: 1em;
-  margin: 2em;
-  width: 50%;
-}
-
-.white-line {
-  border: .2em solid $secondary-background-color;
-  margin: .5em 0 1em 0;
-}
-
-.align-left {
-  text-align: left;
-  width: 40%;
-}
-
-#align-left-full {
-  width: 100%;
-  input {
-    width: 49%;
-  }
-  button {
-    width: 49%;
-  }
-}
-
-.inline {
-  display: flex;
-  justify-content: space-between;
-}
-
-#customer-input
-#start-date {
-  width: 49%;
-}
-
 #find-customer-button,
 #find-available-rooms-button {
   width: 40%;
   margin-top: 0;
   background-color: $accent-color;
+  color: $text-color;
+  font-weight: 600;
 }
 
+.section-footer-button {
+  width: 49%;
+  margin-top: 0;
+}
+
+.show-filter-options-button {
+  margin-right: .5em;
+  margin-top: 0;
+}
+
+.complete-booking-button {
+  margin-top: 0;
+}
+
+.delete-booking-button {
+  margin-top: -2em;
+  margin-bottom: 1.5em;
+}
+
+// INPUTS
+.login-inputs {
+  width: 50%;
+  text-align: left;
+}
+
+#customer-input,
+#start-date {
+  width: 49%;
+}
+
+
+// POP-UPS
+#guest-success-page {
+  position: absolute;
+  margin-top: 4%;
+  margin-left: 5%;
+  background-color: $accent-color;
+  padding: 2em;
+  button {
+    margin: 1em;
+    width: 90%;
+  }
+  .logout-button {
+    background-color: $primary-background-color;
+    color: $text-color;
+    font-weight: 600;
+  }
+  p {
+    padding-top: .5em;
+  }
+}
+
+#guest-filter-page {
+  position: absolute;
+  margin-top: 5%;
+  margin-left: 7%;
+  background-color: $accent-color;
+  padding: 2em;
+  width: 30%;
+  button {
+    margin: 1em;
+    width: 90%;
+  }
+  h5 {
+    font-size: 1.5em;
+    margin-bottom: .5em;
+  }
+}
+
+.call-hotel-message {
+  position: absolute;
+  margin-top: 8%;
+  margin-left: 2%;
+  background-color: $accent-color;
+  padding: 2em;
+  width: 19.5em;
+  h3 {
+    margin-bottom: 1em;
+  }
+  button {
+    margin-top: 1em;
+  }
+}
+
+// INFO SECTIONS
 #customer-bookings,
 #available-rooms {
   border: 1em solid white;
@@ -254,9 +279,67 @@ main {
   }
 }
 
-.section-footer-button {
-  width: 49%;
+.individual-rooms {
+  padding: .5em;
+}
+
+// FORMATING DIVS
+.white-line {
+  border: .2em solid $secondary-background-color;
+  margin: .5em 0 1em 0;
+}
+
+.align-left {
+  text-align: left;
+  width: 40%;
+}
+
+#align-left-full {
+  width: 100%;
+  input {
+    width: 49%;
+  }
+  button {
+    width: 49%;
+  }
+}
+
+.inline {
+  display: flex;
+  justify-content: space-between;
+}
+
+// MISC
+.login-background {
+  background-color: $accent-color;
+  width: 40%;
+  height: 30em;
+  position: absolute;
+  margin: -3em 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.error {
+  margin-bottom: -2em;
+  font-style: italic;
+}
+
+.dashboard-header {
+  background-color: $accent-color;
   margin-top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-image: url(../images/background2.png);
+  background-size: 7em;
+  background-repeat: no-repeat;
+}
+
+.title-graphic {
+  margin-left: 2em;
 }
 
 #reward-remainder {
@@ -266,52 +349,7 @@ main {
   font-size: 1.2em;
 }
 
-.show-filter-options-button {
-  margin-right: .5em;
-  margin-top: 0;
-}
-
-.complete-booking-button {
-  margin-top: 0;
-}
-
-.individual-rooms {
-  padding: .5em;
-}
-
-#guest-success-page {
-  position: absolute;
-  margin-top: 4%;
-  margin-left: 5%;
-  background-color: $accent-color;
-  padding: 2em;
-  button {
-    margin: 1em;
-    width: 90%;
-  }
-  .logout-button {
-    background-color: $primary-background-color;
-  }
-  p {
-    padding-top: .5em;
-  }
-}
-
-.call-hotel-message {
-  position: absolute;
-  margin-top: 8%;
-  margin-left: 2%;
-  background-color: $accent-color;
-  padding: 2em;
-  width: 19.5em;
-  h3 {
-    margin-bottom: 1em;
-  }
-  button {
-    margin-top: 1em;
-  }
-}
-
+// STATES
 .hoverable {
   &:hover {
     @include add-hover-state(pointer);
@@ -323,34 +361,6 @@ main {
   @include add-hover-state(pointer);
   background-color: $secondary-background-color;
   border: 1em solid $accent-color;
-}
-
-
-#guest-filter-page {
-  position: absolute;
-  margin-top: 5%;
-  margin-left: 7%;
-  background-color: $accent-color;
-  padding: 2em;
-  width: 30%;
-  button {
-    margin: 1em;
-    width: 90%;
-  }
-  h5 {
-    font-size: 1.5em;
-    margin-bottom: .5em;
-  }
-}
-
-select {
-  background-color: $secondary-background-color;
-  font-size: 1em;
-}
-
-.delete-booking-button {
-  margin-top: -2em;
-  margin-bottom: 1.5em;
 }
 
 .hide {

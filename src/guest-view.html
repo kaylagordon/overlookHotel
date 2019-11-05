@@ -2,8 +2,8 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <title>Overlook Guest Page</title>
     <link href="https://fonts.googleapis.com/css?family=Josefin+Slab|Montserrat:400,700&display=swap" rel="stylesheet">
-    <title></title>
   </head>
   <body>
     <header class='dashboard-header'>
@@ -15,6 +15,11 @@
     </header>
     <main>
       <section class='small-column'>
+        <section class='call-hotel-message hide'>
+          <h3>Oops!</h3>
+          <p>You cannot change your reservation online. <br/> <br/> Please call us and we can help make the adjustments you need.</p>
+          <button type='button' name='logout-button' class='close-message-button'>OKAY</button>
+        </section>
         <h3 class='section-header'>YOUR BOOKINGS</h3>
         <div class='white-line'></div>
         <section id='guest-booking-info'></section>
@@ -42,10 +47,9 @@
         <h3 class='section-header'>SCHEDULE A STAY</h3>
         <div class='white-line'></div>
         <div class='align-left' id='align-left-full'>
-          <h5>DATE:</h5>
+          <label for='start-date'><h5>DATE:</h5></label>
           <div class='inline'>
-            <input type='date' name='start-date' value='' id='start-date'>
-            <button type='button' name='find-available-rooms-button' id='find-available-rooms-button'>FIND ROOMS</button>
+            <input type='date' name='start-date' value='' id='start-date' alt='Enter the date here.'>            <button type='button' name='find-available-rooms-button' id='find-available-rooms-button'>FIND ROOMS</button>
           </div>
         </div>
         <section id='available-rooms'>
