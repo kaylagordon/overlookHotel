@@ -15,8 +15,8 @@ class BookingsRepository {
     };
   }
 
-  deleteBooking(guestId, date, room) {
-    // TBD
+  findBookingId(guestId, date) {
+    return this.bookings.find(booking => booking.userID === guestId && booking.date === date).id;
   }
 
 }
