@@ -3,10 +3,14 @@ $break2: 565px;
 
 @media only screen and (max-width: $break1) {
   #login-container {
-    // padding: 0;
-    button {
+    #guest-button,
+    #manager-button {
       margin: 2em;
     }
+  }
+  .login-background {
+    width: 80%;
+    margin-left: 10%;
   }
 };
 
@@ -16,8 +20,14 @@ $break2: 565px;
   }
   #login-container {
     margin-top: 0;
-    button {
+    #guest-button,
+    #manager-button {
       width: 70%;
     }
+  }
+  .login-background {
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 15%;
   }
 }
