@@ -46,10 +46,10 @@ describe('bookingsRepository', function() {
     });
   });
 
-  // describe('deleteBooking', function() {
-  //   it('should return all bookings for specified guest', function() {
-  //     expect(bookingRepository.deleteBooking()).to.equal();
-  //   });
-  // });
+  describe('findBookingId', function() {
+    it('should return all bookings for specified guest', function() {
+      expect(bookingsRepository.findBookingId(2, '2019/11/15')).to.equal(4);
+    });
+  });
 
 });

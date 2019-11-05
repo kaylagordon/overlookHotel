@@ -48,24 +48,44 @@ function addManagerDataToDom() {
 
 function addGuestDataToDOM() {
   guestId = parseInt(localStorage.getItem('guestId'));
-  showBookings();
+  showBookings('#guest-booking-info');
+  showBookings('.manager-bookings-list');
+  customerName = localStorage.getItem('customerName').toUpperCase();
+  $('.guest-name').text(customerName);
   $('#total-spent').text(`$${hotel.returnTotalSpent(guestId)}`);
   $('#reward-remainder').text(`$${10000 - hotel.returnTotalSpent(guestId)}`)
 }
 
-function showBookings() {
-  $('#guest-booking-info').text('');
+function showBookings(section) {
+  $(section).text('');
   let bookingDates = bookingsRepository.viewBookings(guestId).map(booking => booking.date)
   let sortedBookings = sortDates(bookingDates);
-  sortedBookings.forEach(date => {
-    $('#guest-booking-info').append(
-      `
-      <b>DATE</b>: ${date}
-      <br/>
-      <br/>
-      `
-    )
-  })
+  if (section === '.manager-bookings-list') {
+    sortedBookings.forEach(date => {
+      $(section).append(
+        `
+        <div class='bookings-date'>
+        <b id='x${date}x'></b>
+        <b>DATE</b>: ${date}
+        <br/>
+        <button type='button' name='delete-booking-button' class='delete-booking-button'>DELETE BOOKING</button>
+        </div>
+        `
+      )
+    })
+  } else {
+    sortedBookings.forEach(date => {
+      $(section).append(
+        `
+        <div class='bookings-date'>
+        <b>DATE</b>: ${date}
+        <br/>
+        </div>
+        `
+      )
+    })
+  }
+  $('.bookings-date').addClass('hoverable');
 }
 
 $('#find-available-rooms-button').click(() => {
@@ -128,6 +148,44 @@ $('#available-rooms').click(() => {
   }
 });
 
+$('.manager-bookings-list').click(() => {
+  if ($('.bookings-date').hasClass('hoverable')) {
+    $('.bookings-date').removeClass('hoverable');
+    $(event.target).closest('div').addClass('clicked');
+  } else if ($(event.target).closest('div').hasClass('clicked') && $(event.target).hasClass('delete-booking-button')) {
+    let bookingDate = $(event.target).parent().html().split('x')[1];
+    let bookingId = bookingsRepository.findBookingId(guestId, bookingDate);
+    fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/bookings/bookings', {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        id: bookingId
+      })
+    }).then(() => hideDeletedBooking())
+  } else if ($(event.target).closest('div').hasClass('clicked')) {
+    $('.bookings-date').addClass('hoverable');
+    $(event.target).closest('div').removeClass('clicked');
+  }
+});
+
+function hideDeletedBooking() {
+  $('.clicked').remove();
+  $('.bookings-date').addClass('hoverable');
+  showSuccessPage()
+}
+
+$('#guest-booking-info').click(() => {
+  $('.call-hotel-message').removeClass('hide');
+  $('.bookings-date').removeClass('hoverable');
+});
+
+$('.close-message-button').click(() => {
+  $('.call-hotel-message').addClass('hide');
+  $('.bookings-date').addClass('hoverable');
+})
+
 $('.complete-booking-button').click(() => {
   if ($('.clicked').html()) {
     completeBooking();
@@ -135,6 +193,15 @@ $('.complete-booking-button').click(() => {
     //throw error
   }
 });
+
+// $('.delete-booking-button').click(() => {
+//   // console.log(guestId);
+//   console.log(event.target.parentElement.children[2].children)
+//   if (event.target.parentElement.children[2].children.hasClass('clicked'))
+//   {
+//     console.log('hu');
+//   }
+// })
 
 function completeBooking() {
   let numDate = numifyDate($('#start-date').val(), '-');
@@ -158,8 +225,7 @@ function showSuccessPage() {
 }
 
 $('.book-another-button').click(() => {
-  $('.individual-rooms').addClass('hoverable');
-  $('#guest-success-page').addClass('hide');
+  location.reload();
 });
 
 $('.show-filter-options-button').click(() => {
@@ -174,6 +240,15 @@ $('.filter-button').click(() => {
   let filteredRooms = hotel.filterAvailableRooms(bookingDate, $('select').val());
   showAvailableRooms(filteredRooms);
 });
+
+let customerName;
+function logIn() {
+  let customer = guestsData.find(guest => guest.name === $('#customer-input').val());
+  guestId = customer.id;
+  localStorage.setItem('guestId', guestId);
+  customerName = customer.name;
+  localStorage.setItem('customerName', customerName);
+}
 
 // HTML PAGE NAVIGATION
 $('#guest-button').click(() => {
@@ -204,12 +279,21 @@ $('#password-input').keyup(() => {
   $('#login-error').addClass('hide');
 })
 
+$('#find-customer-button').click(() => {
+  logIn();
+  window.location = './manager-guest-view.html';
+})
+
 $('#cancel-login-button').click(() => {
   window.location = './index.html';
 })
 
 $('.logout-button').click(() => {
   window.location = './index.html';
+})
+
+$('.manager-go-back-button').click(() => {
+  window.location = './manager-view.html';
 })
 
 // DATES

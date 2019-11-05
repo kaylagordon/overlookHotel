@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Overlook Guest Incognito Page</title>
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Slab|Montserrat:400,700&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <header class='dashboard-header'>
+      <div class='title-graphic'>
+        <h4>the</h4>
+        <h3>OVERLOOK</h3>
+      </div>
+      <div>
+        <button type='button' name='manager-go-back-button' class='manager-go-back-button'>LEAVE GUEST PAGE</button>
+        <button type='button' name='logout-button' class='logout-button'>LOG OUT</button>
+      </div>
+    </header>
+    <main>
+      <section class='small-column'>
+        <h3 class='section-header'><span class='guest-name'></span>'S BOOKINGS</h3>
+        <div class='white-line'></div>
+        <section class='manager-bookings-list'></section>
+        <h5>TOTAL SPENT:</h5>
+        <h6 id='total-spent'></h6>
+        <p>GUEST IS <span id='reward-remainder'></span>  <br/> FROM PREMIER STATUS!</p>
+      </section>
+      <section class='large-column'>
+        <section id='guest-success-page' class='hide'>
+          <h3>CONFIRMED!</h3>
+          <button type='button' name='book-another-button' class='book-another-button'>UPDATE MORE BOOKINGS</button>
+          <button type='button' name='manager-go-back-button' class='manager-go-back-button'>LEAVE GUEST PAGE</button>
+        </section>
+        <section id='guest-filter-page' class='hide'>
+          <h5>FILTER BY:</h5>
+          <select name='filter-rooms-selection'>
+            <option value='single room'>SINGLE ROOM</option>
+            <option value='junior suite'>JUNIOR SUITE</option>
+            <option value='suite'>SUITE</option>
+            <option value='residential suite'>RESIDENTIAL SUITE</option>
+          </select>
+          <button type='button' name='filter-button' class='filter-button'>FILTER</button>
+        </section>
+        <h3 class='section-header'>SCHEDULE A STAY</h3>
+        <div class='white-line'></div>
+        <div class='align-left' id='align-left-full'>
+          <label for='start-date'><h5>DATE:</h5></label>
+          <div class='inline'>
+            <input type='date' name='start-date' value='' id='start-date' alt='Enter the date here.'>
+            <button type='button' name='find-available-rooms-button' id='find-available-rooms-button'>FIND ROOMS</button>
+          </div>
+        </div>
+        <section id='available-rooms'>
+        </section>
+        <div class='inline'>
+          <button type='button' name='show-filter-options-button' class='show-filter-options-button'>FILTER ROOMS</button>
+          <button type='button' name='complete-booking-button' class='complete-booking-button'>BOOK ROOM</button>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
