@@ -14,12 +14,28 @@
       <button type='button' name='logout-button' class='logout-button'>LOG OUT</button>
     </header>
     <main>
+      <section id='guest-success-page' class='pop-up hide'>
+        <h3>CONFIRMED!</h3>
+        <p>We are so glad you are staying with us.</p>
+        <button type='button' name='book-another-button' class='book-another-button'>BOOK ANOTHER ROOM</button>
+        <button type='button' name='logout-button' class='logout-button'>LOG OUT</button>
+      </section>
+      <section id='guest-filter-page' class='pop-up hide'>
+        <h5>FILTER BY:</h5>
+        <select name='filter-rooms-selection'>
+          <option value='single room'>SINGLE ROOM</option>
+          <option value='junior suite'>JUNIOR SUITE</option>
+          <option value='suite'>SUITE</option>
+          <option value='residential suite'>RESIDENTIAL SUITE</option>
+        </select>
+        <button type='button' name='filter-button' class='filter-button'>FILTER</button>
+      </section>
+      <section class='call-hotel-message pop-up hide'>
+        <h3>Oops!</h3>
+        <p>You cannot change your reservation online. <br/> <br/> Please call us and we can help make the adjustments you need.</p>
+        <button type='button' name='logout-button' class='close-message-button'>OKAY</button>
+      </section>
       <section class='small-column'>
-        <section class='call-hotel-message hide'>
-          <h3>Oops!</h3>
-          <p>You cannot change your reservation online. <br/> <br/> Please call us and we can help make the adjustments you need.</p>
-          <button type='button' name='logout-button' class='close-message-button'>OKAY</button>
-        </section>
         <h3 class='section-header'>YOUR BOOKINGS</h3>
         <div class='white-line'></div>
         <section id='guest-booking-info'></section>
@@ -28,22 +44,6 @@
         <p>YOU ARE <span id='reward-remainder'></span>  <br/> FROM PREMIER STATUS!</p>
       </section>
       <section class='large-column'>
-        <section id='guest-success-page' class='hide'>
-          <h3>CONFIRMED!</h3>
-          <p>We are so glad you are staying with us.</p>
-          <button type='button' name='book-another-button' class='book-another-button'>BOOK ANOTHER ROOM</button>
-          <button type='button' name='logout-button' class='logout-button'>LOG OUT</button>
-        </section>
-        <section id='guest-filter-page' class='hide'>
-          <h5>FILTER BY:</h5>
-          <select name='filter-rooms-selection'>
-            <option value='single room'>SINGLE ROOM</option>
-            <option value='junior suite'>JUNIOR SUITE</option>
-            <option value='suite'>SUITE</option>
-            <option value='residential suite'>RESIDENTIAL SUITE</option>
-          </select>
-          <button type='button' name='filter-button' class='filter-button'>FILTER</button>
-        </section>
         <h3 class='section-header'>SCHEDULE A STAY</h3>
         <div class='white-line'></div>
         <div class='align-left' id='align-left-full'>

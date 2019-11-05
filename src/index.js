@@ -106,6 +106,7 @@ $('#guest-button').click(() => {
 });
 
 $('#guest-booking-info').click(() => {
+  $('main').addClass('darken');
   $('.call-hotel-message').removeClass('hide');
   $('.bookings-date').removeClass('hoverable');
 });
