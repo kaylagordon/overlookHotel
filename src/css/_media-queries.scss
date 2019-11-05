@@ -1,0 +1,23 @@
+$break1: 772px;
+$break2: 565px;
+
+@media only screen and (max-width: $break1) {
+  #login-container {
+    // padding: 0;
+    button {
+      margin: 2em;
+    }
+  }
+};
+
+@media only screen and (max-width: $break2) {
+  h1 {
+    font-size: 2em;
+  }
+  #login-container {
+    margin-top: 0;
+    button {
+      width: 70%;
+    }
+  }
+}
