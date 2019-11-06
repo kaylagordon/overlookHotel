@@ -303,7 +303,7 @@ function showBookings(section) {
         `
         <div class='bookings-date'>
         <b id='x${date}x'></b>
-        <b>DATE</b>: ${date}
+        <p><b>DATE</b>: ${date}</p>
         <br/>
         <button type='button' name='delete-booking-button' class='delete-booking-button'>DELETE BOOKING</button>
         </div>
