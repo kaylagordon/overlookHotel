@@ -22,11 +22,11 @@ This is a hotel app for employees and guests. Guests can log in, view bookings, 
 - Sass
 
 ## Sneak Peek
-Loging In:
+Loging In:  
 ![one](https://media.giphy.com/media/l4jPlgdjWyEtm1ZrYm/giphy.gif)
 
-Booking a Room (as a Guest):
-https://media.giphy.com/media/eGsA5LNrIcq2DxkMEh/giphy.gif
+Booking a Room (as a Guest):  
+![two](https://media.giphy.com/media/eGsA5LNrIcq2DxkMEh/giphy.gif)
 
-Deleting a Guest's Reservation (as an Employee):
-https://media.giphy.com/media/XyJfHj3ZzBUlDGU2ox/giphy.gif
+Deleting a Guest's Reservation (as an Employee):  
+![three](https://media.giphy.com/media/XyJfHj3ZzBUlDGU2ox/giphy.gif)
