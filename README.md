@@ -2,6 +2,8 @@
 ## By Kayla Wood
 ## Mod 2 Solo Project
 
+GH Pages Link --> https://kaylaewood.github.io/overlookHotel/index.html
+
 ## Instructions
 1. Clone this repo to your local computer.
 2. `cd` into the directory
