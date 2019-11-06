@@ -9,7 +9,7 @@
 4. Run `npm start` to create a local host to view the webpage.
 5. In your browser, go to the local host url to view and navigate the app.
 6. To be a manager, use the username `manager` and password `overlook2019`.
-7. To be a guest, use the username `customer1` and password `overlook2019`. NOTE: You can be customer 1-50 by changing the numnber in you username!
+7. To be a guest, use the username `customer1` and password `overlook2019`. NOTE: You can be customer 1-50 by changing the number in you username!
 8. In the terminal, run `npm test` to test all class methods and properties.
 
 ## Overview
