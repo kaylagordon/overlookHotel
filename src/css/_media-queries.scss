@@ -1,7 +1,29 @@
-$break1: 772px;
-$break2: 565px;
+$break1: 975px;
+$break2: 772px;
+$break3: 565px;
 
 @media only screen and (max-width: $break1) {
+  main {
+    flex-direction: column;
+  }
+  .small-column,
+  .large-column {
+    width: 90%;
+    margin-left: 5%;
+    padding-bottom: 1em;
+    .info-block,
+    .title-block {
+      margin-bottom: 0;
+    }
+  }
+  #info-big-block {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+};
+
+@media only screen and (max-width: $break2) {
   #login-container {
     #guest-button,
     #manager-button {
@@ -14,7 +36,7 @@ $break2: 565px;
   }
 };
 
-@media only screen and (max-width: $break2) {
+@media only screen and (max-width: $break3) {
   h1 {
     font-size: 2em;
   }
@@ -29,5 +51,33 @@ $break2: 565px;
     width: 80%;
     margin-left: 10%;
     margin-top: 15%;
+  }
+  .large-column {
+    .inline {
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+    }
+    #align-left-full {
+      width: 100%;
+      input,
+      button {
+        width: 100%;
+        margin: .5em;
+      }
+    }
+  }
+  .title-graphic {
+    h3 {
+      font-size: 1em;
+    }
+  }
+  .info-block {
+    h5 {
+      font-size: .7em;
+    }
+    h6 {
+      font-size: 2em;
+    }
   }
 }

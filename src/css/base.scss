@@ -47,7 +47,8 @@ main {
   padding: 1em;
   margin: 2em;
   padding-bottom: 3em;
-  .info-block {
+  .info-block,
+  .title-block {
     margin-bottom: 5em;
   }
   p {
@@ -263,6 +264,7 @@ button {
 // FORMATING DIVS
 .white-line {
   border: .2em solid $secondary-background-color;
+  background-color:$secondary-background-color;
   margin: .5em 0 1em 0;
 }
 
