@@ -3,7 +3,6 @@ const expect = chai.expect;
 
 import Hotel from '../src/hotel';
 import BookingsRepository from '../src/bookingsRepository';
-import guestsTestData from '../test-data/guests-test-data.js';
 import bookingsTestData from '../test-data/bookings-test-data.js';
 import roomsTestData from '../test-data/rooms-test-data.js';
 

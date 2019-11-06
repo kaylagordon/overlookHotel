@@ -13,7 +13,7 @@ class Hotel {
       return openRooms;
     }, []);
     return availableRooms;
-  };
+  }
 
   returnPercentRoomsOccupied(date) {
     let decimal = this.viewRoomsAvailable(date).length / this.rooms.length;
@@ -30,7 +30,7 @@ class Hotel {
       return totalMoney;
     }, 0);
     return Math.round(totalRevenue);
-  };
+  }
 
   returnTotalSpent(guestId) {
     let guestBookings = this.bookings.filter(booking => booking.userID === guestId).map(booking => booking.roomNumber);
@@ -48,6 +48,6 @@ class Hotel {
   filterAvailableRooms(date, roomType) {
     return this.viewRoomsAvailable(date).filter(room => room.roomType === roomType);
   }
-};
+}
 
 export default Hotel;
