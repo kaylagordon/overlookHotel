@@ -40,7 +40,6 @@ Promise.all([roomsFetchData, bookingsFetchData, guestsFetchData])
 });
 
 $('#available-rooms').click(() => {
-  console.log(event.target);
   if ($('.individual-rooms').hasClass('hoverable')) {
     $('.individual-rooms').removeClass('hoverable');
     $(event.target).closest('div').addClass('clicked');
@@ -180,14 +179,14 @@ function addGuestDataToDOM() {
   customerName = localStorage.getItem('customerName').toUpperCase();
   $('.guest-name').text(customerName);
   $('#total-spent').text(`$${hotel.returnTotalSpent(guestId)}`);
-  $('#reward-remainder').text(`$${10000 - hotel.returnTotalSpent(guestId)}`)
-};
+  $('#reward-remainder').text(`$${10000 - hotel.returnTotalSpent(guestId)}`);
+}
 
 function addManagerDataToDom() {
   $('#rooms-available').text(hotel.viewRoomsAvailable(todayDate).length);
   $('#percent-occupied').text(`${hotel.returnPercentRoomsOccupied(todayDate)}%`);
   $('#total-revenue').text(`$${hotel.returnTotalRevenue(todayDate)}`);
-};
+}
 
 function checkDate(inputDate) {
   let guestDate = numifyDate(inputDate, '/');
@@ -197,7 +196,7 @@ function checkDate(inputDate) {
   } else {
     return false;
   }
-};
+}
 
 function completeBooking() {
   let numDate = numifyDate($('#start-date').val(), '-');
@@ -215,7 +214,7 @@ function completeBooking() {
   .catch(error => {
     console.log(error);
   });
-};
+}
 
 function getTodayDate() {
   let date = new Date();
@@ -224,20 +223,20 @@ function getTodayDate() {
   let year = date.getUTCFullYear();
   if (day < 10 && month < 10) {
     return `${year}/0${month}/0${day}`;
-  } else if (day < 10 && month >= 10){
+  } else if (day < 10 && month >= 10) {
     return `${year}/${month}/0${day}`;
-  } else if (day >= 10 && month < 10){
+  } else if (day >= 10 && month < 10) {
     return `${year}/0${month}/${day}`;
   } else {
     return `${year}/${month}/${day}`;
   }
-};
+}
 
 function hideDeletedBooking() {
   $('.clicked').remove();
   $('.bookings-date').addClass('hoverable');
   showSuccessPage()
-};
+}
 
 function logIn() {
   let customer = guestsData.find(guest => guest.name === $('#customer-input').val());
@@ -245,7 +244,7 @@ function logIn() {
   localStorage.setItem('guestId', guestId);
   customerName = customer.name;
   localStorage.setItem('customerName', customerName);
-};
+}
 
 function numifyDate(date, character) {
   let year = parseInt(date.split(character)[0]);
@@ -253,14 +252,14 @@ function numifyDate(date, character) {
   let day = parseInt(date.split(character)[2]);
   if (day < 10 && month < 10) {
     return parseInt(`${year}0${month}0${day}`);
-  } else if (day < 10 && month >= 10){
+  } else if (day < 10 && month >= 10) {
     return parseInt(`${year}${month}0${day}`);
-  } else if (day >= 10 && month < 10){
+  } else if (day >= 10 && month < 10) {
     return parseInt(`${year}0${month}${day}`);
   } else {
     return parseInt(`${year}${month}${day}`);
   }
-};
+}
 
 function showAvailableRooms(method) {
   $('#available-rooms').text('');
@@ -291,7 +290,7 @@ function showAvailableRooms(method) {
       `
     )
   }
-};
+}
 
 function showBookings(section) {
   $(section).text('');
@@ -323,12 +322,12 @@ function showBookings(section) {
     })
   }
   $('.bookings-date').addClass('hoverable');
-};
+}
 
 function showSuccessPage() {
   $('.clicked').removeClass('clicked');
   $('#guest-success-page').removeClass('hide');
-};
+}
 
 function sortDates(dates) {
   let numDates = [];
@@ -336,7 +335,7 @@ function sortDates(dates) {
     numDates.push(numifyDate(date, '/'));
   })
   return numDates.sort((a, b) => b - a).map(date => stringifyDate(date))
-};
+}
 
 function stringifyDate(date) {
   let splitDate = date.toString().split('');
@@ -344,4 +343,4 @@ function stringifyDate(date) {
   let month = `${splitDate[4]}${splitDate[5]}`;
   let day = `${splitDate[6]}${splitDate[7]}`;
   return `${year}/${month}/${day}`
-};
+}
