@@ -90,4 +90,19 @@ $break3: 565px;
     margin-top: .2em;
     width: 100%;
   }
+  .nav-buttons {
+    button {
+      margin: .2em;
+      width: 60%;
+    }
+  }
+  .manager-bookings-list {
+    div {
+      display: flex;
+      flex-direction: column;
+      button{
+        width: 70%;
+      }
+    }
+  }
 }
